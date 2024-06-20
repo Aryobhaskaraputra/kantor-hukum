@@ -1,0 +1,613 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+    font-family: "Urbanist", sans-serif;
+    background-color: #ebeef4;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* COMPONENT */
+.btn-main {
+    background-color: #0a1931;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.btn-main:hover {
+    background-color: #123456;
+    color: #ffffff;
+}
+
+.btn-lihat-semua {
+    border-color: #0a1931;
+    color: #0a1931;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: medium;
+    border-radius: 5px;
+}
+
+.btn-lihat-semua:hover {
+    background-color: #0a1931;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.alert-status {
+    height: 20px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* navbar */
+header {
+    background-color: #ebeef4;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.notifications {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 400px;
+    width: 400px;
+}
+
+.notification-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item a:hover {
+    background-color: #e7f2ff;
+}
+
+
+.dropdown-header, .dropdown-footer {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+
+.icon-profile img {
+    border-radius: 50%;
+}
+
+.navbar-header {
+    width: 100%;
+    z-index: 1001;
+}
+
+.text-end a {
+    text-decoration: none !important;
+}
+
+.text-end {
+    display: flex;
+    align-items: center;
+}
+
+.text-end img {
+    vertical-align: middle;
+}
+
+/* sidebar */
+.sidebar {
+    background-color: #0a1931;
+    width: 250px;
+    height: calc(100vh - 56px);
+    top: 56px;
+    left: 0;
+    position: fixed;
+    z-index: 1000;
+}
+
+.sidebar-content {
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 56px;
+}
+
+.nav-item .nav-link {
+    font-size: 18px;
+    color: white;
+    font-weight: 400;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 20px;
+    margin: 20px 0;
+}
+
+.nav-link img {
+    filter: invert(100%);
+}
+
+.nav-item:hover .nav-link {
+    background-color: #ffffff;
+    color: #0a1931;
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
+}
+
+.nav-item:hover .nav-link img {
+    filter: none;
+}
+
+.nav-item .nav-link.active {
+    background-color: #ffffff;
+    color: #0a1931;
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
+}
+
+.nav-item .nav-link.active img {
+    filter: none;
+}
+
+.logout-container {
+    text-align: center;
+}
+
+.logout-link {
+    color: #e34d56;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none !important;
+}
+
+.logout-link:hover {
+    color: #fa6a74;
+}
+
+.logout-link:hover img {
+    filter: brightness(1.5);
+}
+
+/* content style */
+.content {
+    margin-top: 56px;
+    margin-left: 250px;
+    padding: 15px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+}
+
+/* Login section */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 30px;
+    width: 450px;
+    border-radius: 20px;
+}
+
+.inputForm {
+    border: 1px solid #ecedec;
+    border-radius: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.input {
+    border-radius: 10px;
+    border: none;
+    width: 85%;
+    height: 100%;
+}
+
+.span {
+    font-size: 14px;
+    margin-left: 5px;
+    color: #0a1931;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.button-submit {
+    margin: 20px 0 10px 0;
+    background-color: #0a1931;
+    border: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: medium;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.button-submit:hover {
+    filter: brightness(110%);
+}
+
+/* Dashbord Section */
+
+.card-document button.btn-main {
+    background-color: #0a1931;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.card-document button.btn-main img {
+    margin-right: 5px;
+}
+
+.card-document button.btn-main:hover {
+    background-color: #123456;
+    color: #ffffff;
+}
+
+.card-document button.btn-main:hover img {
+    filter: brightness(1.5);
+}
+
+.card-informasi-client {
+    background-color: #ebeef4;
+    color: #0a1931;
+}
+
+.icon-action {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.icon-action:hover {
+    filter: brightness(0.8);
+}
+
+.icon-action + span {
+    font-size: 14px;
+    color: #403ded;
+}
+
+/* Team Section */
+.card-profile {
+    background-image: url("/storage/images/bgcr-1.png");
+    color: #ffffff;
+}
+
+.profile-avatar img {
+    width: 60px;
+    height: 60px;
+}
+
+.avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.card-role {
+    height: 100%;
+    background-color: #0a1931;
+    color: #ffffff;
+}
+
+.card-header-team {
+    background-color: #0a1931;
+    color: #ffffff;
+}
+
+.accordion-button {
+    background-color: #0a1931;
+    color: #ffffff;
+}
+
+.accordion-button::after {
+    filter: invert(1);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #0a1931;
+    color: #ffffff;
+}
+
+.accordion-button:not(.collapsed)::after {
+    filter: invert(1);
+}
+
+/* Kasus Client Section */
+.card-header-custom {
+    background-color: #001f3f;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body-custom {
+    background-color: #ffffff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.info-box {
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.info-box-title {
+    font-weight: bold;
+    color: #0a1931;
+}
+
+.btn-primary-custom {
+    background-color: #0a1931;
+    border-color: #0a1931;
+    border-radius: 20px;
+}
+
+.btn-primary-custom:hover {
+    background-color: #001f3f;
+    border-color: #001f3f;
+}
+
+.container-custom {
+    font-size: 12px;
+}
+
+.vertical-line {
+    border-left: 1px solid #757575;
+    height: 20px;
+    margin: 0 10px;
+}
+
+.team-info {
+    display: flex;
+    align-items: center;
+}
+
+.team-info img {
+    margin-right: 12px;
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.team-member .vertical-line {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+/* profile section */
+.profile-card {
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.profile-card-header {
+    background-color: #0a1931;
+    border-bottom: 1px solid #e9ecef;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #ffffff;
+}
+
+.profile-card-body {
+    padding: 10px;
+}
+
+.profile-card-body p {
+    margin-bottom: 5px;
+}
+
+.profile-card-body strong {
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+.profile-header-container {
+    margin-bottom: 0.5rem;
+}
+
+.profile-info-container {
+    padding: 0.5rem;
+}
+
+/* edit profile section */
+.profile-avatar {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-avatar img {
+    border-radius: 50%;
+}
+
+.profile-avatar:hover::after {
+    content: "Edit";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    visibility: hidden;
+}
+
+.profile-avatar:hover::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.profile-avatar:hover::after,
+.profile-avatar:hover::before {
+    visibility: visible;
+}
+
+/* User Management Section */
+.table thead th {
+    background-color: #0a1931; /* Ganti dengan warna yang Anda inginkan */
+    color: white; /* Warna teks diubah menjadi putih untuk kontras */
+}
+
+td {
+    padding: 20px;
+    vertical-align: middle;
+}
+
+.action-icon {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.action-icon img {
+    width: 24px;
+    height: 24px;
+    text-decoration: none !important;
+}
+
+.action-icon:hover img {
+    filter: brightness(1.5);
+}
+
+/* form dokumen */
+.card-form-document {
+    background-color: #e9ecef;
+    border: 2px dashed #0a1931;
+    height: 150px;
+    cursor: pointer;
+}
+
+.card-form-document .card-body img {
+    margin-bottom: 10px;
+    width: 50px;
+}
+
+/* .dropdown-kasus .btn {
+    width: 400px;
+    border: #757575 1px solid;
+}
+
+.dropdown-kasus .dropdown-menu {
+    width: 400px;
+    height: 200px;
+}
+
+.dropdown-kasus .dropdown-menu .dropdown-item {
+    border-bottom: 1px solid #ddd;
+    width: 400px;
+} */
+
+.btn-upload {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Detail Kasus */
+.card-kasus {
+    background-color: #0a1931;
+    color: #ffffff;
+}
+
+.card-section {
+    background-color: #ebeef4;
+}
+.description {
+    text-align: justify;
+}
+
+.file-name {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.card-custom {
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-color: #e9eef6;
+    transition: box-shadow 0.3s ease;
+}
+
+.card-custom:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header-custom-doc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #e9eef6;
+    color: #000;
+}
+.card-header-custom-doc img {
+    width: 20px;
+    height: 20px;
+}
+
+.file-card a {
+    text-decoration: none;
+}
+
+.card-custom img {
+    border-radius: 8px;
+    margin: 10px;
+    max-height: 200px;
+}
+
+.scrollable-card-body {
+    max-height: 200px; /* Anda bisa sesuaikan tinggi sesuai kebutuhan */
+    overflow-y: auto;
+}
+
+.card-logs{
+    max-height: 300px; /* Anda bisa sesuaikan tinggi sesuai kebutuhan */
+    overflow-y: auto;
+}
