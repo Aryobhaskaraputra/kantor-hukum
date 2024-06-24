@@ -113,7 +113,5 @@ Route::middleware('auth')->group(function () {
     // COMMENT
     Route::post('/legal-cases/{id}/comments', [CommentController::class, 'store'])->name('comment.store');
 
-
-
     Route::post('/mark-all-read', [NotificationController::class, 'markAllRead'])->name('notifications.markAllRead');
 });

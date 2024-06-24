@@ -13,21 +13,17 @@ class UserController extends Controller
 {
     public function userManagementIndex(Request $request)
     {
-
         $filter = $request->query('filter');
-
 
         $query = DB::table('users')
             ->join('roles', 'users.role_id', '=', 'roles.id')
             ->select('users.*', 'roles.role_name');
 
-
         if ($filter) {
             $query->where('roles.role_name', $filter);
         }
 
-        $users = $query->get();
-
+        $users = $query->paginate(10);
         return view('master.user-management', compact('users'));
     }
 
@@ -43,7 +39,7 @@ class UserController extends Controller
             ->orWhereHas('role', function ($q) use ($query) {
                 $q->where('role_name', 'like', '%' . $query . '%');
             })
-            ->get();
+            ->paginate(10);
 
         return view('master.user-management', compact('users', 'query'));
     }

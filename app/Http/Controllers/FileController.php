@@ -219,10 +219,6 @@ class FileController extends Controller
             return redirect()->back();
         }
 
-        // Update informasi file sesuai input yang diberikan
-        $oldFileName = $file->file_name;
-        $oldFilePath = $file->file_path;
-        $oldFileExtension = $file->file_extension;
 
         if ($request->filled('file_name')) {
             $file->file_name = $request->file_name;

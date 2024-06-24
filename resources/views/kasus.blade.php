@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Kasus Client')
+@section('title', 'Halaman Kasus Klien')
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Kasus Client</h1>
+        <h1 class="h2">Kasus Klien</h1>
         @if (Auth::check() && (Auth::user()->role->role_name === 'Admin' || Auth::user()->role->role_name === 'Master'))
             <a href="{{ route('kasus.create') }}" class="btn btn-main">
                 <img src="{{ asset('storage/images/plus-icon.svg') }}" class="me-2" alt="Dashboard Icon" width="16"

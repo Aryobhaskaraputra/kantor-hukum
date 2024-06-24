@@ -59,8 +59,8 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item"
-                            href="{{ route('profile.index', ['id' => Auth::user()->id]) }}">Profile</a>
-                        <a class="dropdown-item" href="{{ route('change-password') }}">Ubah Password</a>
+                            href="{{ route('profile.index', ['id' => Auth::user()->id]) }}">Profil</a>
+                        <a class="dropdown-item" href="{{ route('change-password') }}">Ubah Kata Sandi`</a>
                     </div>
                 </div>
             @endif

@@ -38,6 +38,7 @@
             @endif
                 <form method="POST" action="{{ route('loginIndex') }}" class="form container">
                     @csrf
+                    <h3 class="text-center">Halaman Login</h3>
                     <div class="row">
                         <div class="col">
                             <label for="email" class="form-label fw-bold">Email</label>
@@ -51,7 +52,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <label for="password" class="form-label fw-bold">Password</label>
+                            <label for="password" class="form-label fw-bold">Kata Sandi</label>
                             <div class="inputForm d-flex align-items-center">
                                 <img src="{{ asset('storage/images/password-icon.svg') }}" alt="password-icon">
                                 <input type="password" class="form-control input" id="password" name="password"
@@ -62,7 +63,7 @@
 
                     <div class="row">
                         <div class="col text-center ">
-                            <a href="{{ route('password.request') }}" class="span fw-bold" style="text-decoration: none">Lupa Password?</a>
+                            <a href="{{ route('password.request') }}" class="span fw-bold" style="text-decoration: none">Lupa Kata Sandi?</a>
                         </div>
                     </div>
 

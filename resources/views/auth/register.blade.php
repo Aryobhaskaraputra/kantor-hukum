@@ -32,6 +32,7 @@
                 @endif
                 <form class="form container" method="POST" action="{{ route('submit.register') }}">
                     @csrf
+                    <h3 class="text-center">Halaman Registrasi</h3>
                     <div class="row">
                         <div class="col">
                             <label for="nama_depan" class="form-label fw-bold">Nama Depan</label>

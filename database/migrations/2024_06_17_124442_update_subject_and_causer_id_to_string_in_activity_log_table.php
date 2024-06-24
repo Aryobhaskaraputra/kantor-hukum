@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table(config('activitylog.table_name'), function (Blueprint $table) {
-            $table->string('subject_id')->change();
-            $table->string('causer_id')->change();
+            $table->string('subject_id')->nullable()->change();
+            $table->string('causer_id')->nullable()->change();
         });
     }
 

@@ -38,6 +38,7 @@
 
                 <form method="POST" action="{{ route('password.update') }}" class="form container">
                     @csrf
+                    <h3 class="text-center">Atur Ulang Kata Sandi</h3>
                     <input type="hidden" name="token" value="{{ request()->route('token') }}">
                     <div class="row">
                         <div class="col">

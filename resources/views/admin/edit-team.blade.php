@@ -89,4 +89,40 @@
             </div>
         </div>
     </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Initialize Select2
+            $('#kasusDropdown').select2();
+            $('#ketuaTeamDropdown').select2();
+            $('#anggota2Dropdown').select2();
+            $('#anggota3Dropdown').select2();
+            $('#anggota4Dropdown').select2();
+            $('#anggota5Dropdown').select2();
+
+            // Add search functionality to the input fields
+            function setupSearch(inputId, dropdownId) {
+                $(inputId).on('input', function() {
+                    var searchValue = $(this).val().toLowerCase();
+                    $(dropdownId).find('option').each(function() {
+                        var text = $(this).text().toLowerCase();
+                        if (text.includes(searchValue)) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
+                    $(dropdownId).select2();
+                });
+            }
+
+            setupSearch('#kasusSearch', '#kasusDropdown');
+            setupSearch('#ketuaTeamSearch', '#ketuaTeamDropdown');
+            setupSearch('#anggota2Search', '#anggota2Dropdown');
+            setupSearch('#anggota3Search', '#anggota3Dropdown');
+            setupSearch('#anggota4Search', '#anggota4Dropdown');
+            setupSearch('#anggota5Search', '#anggota5Dropdown');
+        });
+    </script>
 @endsection

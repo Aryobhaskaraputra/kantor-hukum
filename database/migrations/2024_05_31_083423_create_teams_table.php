@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('member3_id');
             $table->string('member4_id')->nullable();
             $table->string('member5_id')->nullable();
-            $table->string('member6_id')->nullable();
             $table->string('created_by')->default('2');
             $table->timestamps();
 
@@ -29,7 +28,6 @@ return new class extends Migration
             $table->foreign('member3_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('member4_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('member5_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('member6_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
         });
     }

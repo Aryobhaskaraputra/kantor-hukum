@@ -14,54 +14,72 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     // public function index(Request $request)
     // {
-    //     $users = User::where('status', 'request')->get();
+    //     // Mengambil data user dengan status 'request' dan menggunakan paginasi dengan 10 item per halaman
+    //     $users = User::where('status', 'request')->paginate(10);
 
-    //     // Check if 'id' parameter exists in the request
+    //     // Check jika ada parameter 'id' dalam request untuk menandai notifikasi sebagai sudah dibaca
     //     if ($request->has('id')) {
     //         $notificationId = $request->id;
 
-    //         // Find the notification by id in unread notifications of the authenticated user
+    //         // Cari notifikasi berdasarkan id dalam notifikasi yang belum dibaca oleh user yang terautentikasi
     //         $notification = Auth::user()->unreadNotifications
     //             ->where('id', $notificationId)
     //             ->first();
 
-    //         // If notification found, mark it as read
+    //         // Jika notifikasi ditemukan, tandai sebagai sudah dibaca
     //         if ($notification) {
     //             $notification->markAsRead();
-    //             // Redirect back to the same route after marking as read
+    //             // Redirect kembali ke route yang sama setelah menandai sebagai sudah dibaca
     //             return redirect()->route('admin.list-pendaftar');
     //         }
     //     }
 
+    //     // Mengirim data users ke view 'admin.list-pendaftar' dengan menggunakan paginasi
     //     return view('admin.list-pendaftar', compact('users'));
     // }
+
     public function index(Request $request)
-    {
-        // Mengambil data user dengan status 'request' dan menggunakan paginasi dengan 10 item per halaman
-        $users = User::where('status', 'request')->paginate(10);
+{
+    // Mengambil query pencarian dari request
+    $search = $request->input('search');
 
-        // Check jika ada parameter 'id' dalam request untuk menandai notifikasi sebagai sudah dibaca
-        if ($request->has('id')) {
-            $notificationId = $request->id;
+    // Mengambil data user dengan status 'request' dan menggunakan paginasi dengan 10 item per halaman
+    // Tambahkan pencarian jika ada query pencarian
+    $users = User::where('status', 'request')
+                ->when($search, function ($query, $search) {
+                    return $query->where(function ($q) use ($search) {
+                        $q->where('nama_depan', 'like', '%' . $search . '%')
+                          ->orWhere('nama_belakang', 'like', '%' . $search . '%')
+                          ->orWhere('email', 'like', '%' . $search . '%')
+                          ->orWhere('nomor_induk_anggota', 'like', '%' . $search . '%');
+                    });
+                })
+                ->paginate(10);
 
-            // Cari notifikasi berdasarkan id dalam notifikasi yang belum dibaca oleh user yang terautentikasi
-            $notification = Auth::user()->unreadNotifications
-                ->where('id', $notificationId)
-                ->first();
+    // Check jika ada parameter 'id' dalam request untuk menandai notifikasi sebagai sudah dibaca
+    if ($request->has('id')) {
+        $notificationId = $request->id;
 
-            // Jika notifikasi ditemukan, tandai sebagai sudah dibaca
-            if ($notification) {
-                $notification->markAsRead();
-                // Redirect kembali ke route yang sama setelah menandai sebagai sudah dibaca
-                return redirect()->route('admin.list-pendaftar');
-            }
+        // Cari notifikasi berdasarkan id dalam notifikasi yang belum dibaca oleh user yang terautentikasi
+        $notification = Auth::user()->unreadNotifications
+            ->where('id', $notificationId)
+            ->first();
+
+        // Jika notifikasi ditemukan, tandai sebagai sudah dibaca
+        if ($notification) {
+            $notification->markAsRead();
+            // Redirect kembali ke route yang sama setelah menandai sebagai sudah dibaca
+            return redirect()->route('admin.list-pendaftar');
         }
-
-        // Mengirim data users ke view 'admin.list-pendaftar' dengan menggunakan paginasi
-        return view('admin.list-pendaftar', compact('users'));
     }
+
+    // Mengirim data users ke view 'admin.list-pendaftar' dengan menggunakan paginasi
+    return view('admin.list-pendaftar', compact('users'));
+}
+
     /**
      * Show the form for creating a new resource.
      */

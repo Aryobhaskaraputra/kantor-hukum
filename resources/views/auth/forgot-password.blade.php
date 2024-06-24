@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{ asset('iconWeb.svg') }}" type="image/svg+xml">
-    <title>@yield('title', 'Lupa Password')</title>
+    <title>@yield('title', 'Atur Ulang Kata Sandi')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -38,6 +38,7 @@
 
                 <form method="POST" action="{{ route('password.email') }}" class="form container">
                     @csrf
+                    <h3 class="text-center">Atur Ulang Kata Sandi</h3>
                     <div class="row">
                         <div class="col">
                             <label for="email" class="form-label fw-bold">Email</label>
@@ -51,7 +52,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <button type="submit" class="button-submit">Kirim Link Reset Kata Sandi</button>
+                            <button type="submit" class="button-submit">Atur Ulang Kata Sandi</button>
                         </div>
                     </div>
             </div>

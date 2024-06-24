@@ -187,8 +187,6 @@ class TeamController extends Controller
             'anggota5' => 'nullable|string',
         ]);
 
-
-
         // Update team data
         $team->case_id = $request->input('kasus');
         $team->leader_id = $request->input('ketua_team');

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Kasus Client')
+@section('title', 'Tim')
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -9,7 +9,7 @@
             <a href="{{ route('team.create') }}" class="btn btn-main">
                 <img src="{{ asset('storage/images/plus-icon.svg') }}" class="me-2" alt="Dashboard Icon" width="16"
                     height="16">
-                Buat Team
+                Buat Tim
             </a>
         @endif
     </div>
@@ -157,7 +157,7 @@
                                     @if (Auth::check() && (Auth::user()->role->role_name === 'Admin' || Auth::user()->role->role_name === 'Master'))
                                         <a href="{{ route('team.edit', ['team' => $team->team->id]) }}"
                                             class="btn btn-warning text-center mx-2">Update
-                                            Team</a>
+                                            Tim</a>
                                     @endif
                                     <a href="{{ route('kasus.show', ['legalCase' => $team->id]) }}"
                                         class="btn btn-main">Detail Kasus</a>

@@ -5,7 +5,7 @@
                 <a  href="{{ route('dashboard') }}" class="nav-link @if(request()->is('home')) active @endif" aria-current="page">
                     <img src="{{ asset('storage/images/dashboard-icon.svg') }}" class="m-2" alt="Dashboard Icon"
                         width="16" height="16">
-                    Dashboard
+                    Dasbor
                 </a>
             </li>
             <li class="nav-item">
@@ -19,7 +19,7 @@
                 <a href="{{ route('team.index') }}" class="nav-link @if(request()->is('team')) active @endif" aria-current="page">
                     <img src="{{ asset('storage/images/team.svg') }}" class="m-2" alt="Dashboard Icon" width="16"
                         height="16">
-                    Team
+                    Tim
                 </a>
             </li>
             @if (Auth::check() && (Auth::user()->role->role_name === 'Admin' || Auth::user()->role->role_name === 'Master'))

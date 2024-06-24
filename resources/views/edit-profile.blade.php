@@ -21,15 +21,10 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center profile-header-container">
                                 <label for="profileImage" class="profile-avatar">
-                                    @if ($user->profile_photo_url)
-                                        <img src="{{ asset('storage/' . $user->profile_photo_url) }}" alt="Profile Picture"
-                                            width="60" height="60">
-                                    @else
-                                        <img src="{{ asset('storage/images/profile-icon.svg') }}" alt="Profile Picture"
-                                            width="60" height="60">
-                                    @endif
+                                    <img id="profileImagePreview" src="{{ $user->profile_photo_url ? asset('storage/' . $user->profile_photo_url) : asset('storage/images/profile-icon.svg') }}" alt="Profile Picture"
+                                        width="60" height="60">
                                     <input type="file" id="profileImage" name="profile_photo" class="d-none"
-                                        accept="image/*">
+                                        accept="image/*" onchange="previewImage(event)">
                                 </label>
                                 @error('profile_photo')
                                     <div class="invalid-feedback d-block">
@@ -129,4 +124,15 @@
             </div>
         </div>
     </form>
+
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function(){
+                const output = document.getElementById('profileImagePreview');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 @endsection

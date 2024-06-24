@@ -23,7 +23,7 @@
                 <div class="profile-card-body mt-2 profile-info-container">
                     <div class="row">
                         <div class="col-12 mb-2">
-                            <label for="progress_tahapan" class="form-label">Nama Depan</label>
+                            <label for="progress_tahapan" class="form-label">Progress Tahapan</label>
                             @if ($legalCase->progress_tahapan != null)
                                 <input type="text" class="form-control" id="progress_tahapan" name="progress_tahapan"
                                     value="{{ $legalCase->progress_tahapan }}">

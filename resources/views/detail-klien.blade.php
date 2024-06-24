@@ -53,7 +53,7 @@
                 <div class="card mt-2 profile-card">
                     <div class="card-body">
                         <div class="profile-card-header d-flex justify-content-between align-items-center">
-                            <h6 class="mb-0">Address</h6>
+                            <h6 class="mb-0">Alamat</h6>
                         </div>
                         <div class="profile-card-body mt-2 profile-info-container">
                             <div class="row">
